@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
+  
   def index
     render json: { posts: "Here are the posts!" }
   end
